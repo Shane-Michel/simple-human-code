@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Simple Human Code – Body, Mind & Spirit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="The Simple Human Code – a simple, Biblical code for eating, moving, resting, and resisting all forms of evil, including food."
+  />
+
+  <style>
+    :root {
+      --bg: #050608;
+      --bg-alt: #101218;
+      --bg-soft: #171a22;
+      --accent: #facc15;
+      --accent-soft: rgba(250, 204, 21, 0.08);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #f97373;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      --max-width: 960px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.7);
+      --shadow-subtle: 0 10px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #111827, #020617 52%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    header.site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 30% 70% 60% 40%;
+      background: radial-gradient(circle at 20% 20%, #facc15, #f97316);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      inset: 14%;
+      border-radius: inherit;
+      border: 2px solid rgba(15, 23, 42, 0.4);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.55);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+    }
+
+    .domain-pill {
+      font-size: 0.7rem;
+      border-radius: var(--radius-pill);
+      padding: 0.4rem 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      white-space: nowrap;
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .domain-pill {
+        display: inline-flex;
+      }
+    }
+
+    .hero {
+      border-radius: 24px;
+      padding: 1.9rem 1.5rem 1.75rem;
+      background: radial-gradient(circle at top left, #1e293b, #020617 56%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.12), transparent);
+      top: -90px;
+      right: -120px;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(156, 163, 175, 0.55);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      background: rgba(15, 23, 42, 0.82);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-kicker span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 2.4vw + 1.4rem, 2.7rem);
+      line-height: 1.1;
+      margin: 0 0 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      font-style: italic;
+      margin-bottom: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tagline strong {
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 0.7rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #facc15, #f97316);
+      color: #111827;
+      font-weight: 600;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--muted);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn span.icon {
+      font-size: 1.1rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.1fr);
+      }
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.94);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.35rem 1.3rem;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+
+    .card-badge {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      background: var(--accent-soft);
+      color: #fef9c3;
+      border: 1px solid rgba(250, 204, 21, 0.4);
+      white-space: nowrap;
+    }
+
+    .card h2 {
+      margin: 0.15rem 0 0.35rem;
+      font-size: 1.15rem;
+    }
+
+    .section-pill {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-pill span {
+      opacity: 0.7;
+    }
+
+    ul.bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0.4rem 0 0;
+    }
+
+    ul.bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    ul.bullets li::before {
+      content: "•";
+      color: var(--accent);
+      margin-top: 0.05rem;
+    }
+
+    .quote {
+      font-size: 0.85rem;
+      margin-top: 0.7rem;
+      padding-left: 0.7rem;
+      border-left: 2px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .quote span.ref {
+      display: inline-block;
+      margin-top: 0.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e5e7eb;
+    }
+
+    .divider {
+      height: 1px;
+      border: none;
+      margin: 0.9rem 0 0.8rem;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(148, 163, 184, 0.5),
+        transparent
+      );
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(75, 85, 99, 0.85);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .battle-steps {
+      counter-reset: step;
+      margin: 0.5rem 0 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .battle-steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: baseline;
+      font-size: 0.9rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .battle-steps li span.num {
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .prayer {
+      font-size: 0.9rem;
+      background: radial-gradient(circle at top left, #1f2937, #020617 70%);
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.9rem 0.9rem 0.95rem;
+      margin-top: 0.6rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .prayer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .prayer p {
+      margin: 0;
+    }
+
+    .side-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .side-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 0.3rem 0 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .checklist li span.icon {
+      font-size: 0.9rem;
+    }
+
+    .micro {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    .verse-chip {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      margin-top: 0.35rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: #e5e7eb;
+    }
+
+    .verse-chip span.icon {
+      font-size: 0.9rem;
+    }
+
+    footer.site-footer {
+      margin-top: auto;
+      padding: 1.25rem 1.5rem 2rem;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: center;
+    }
+
+    .site-footer-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .site-footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .back-to-top {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .back-to-top span.icon {
+      font-size: 0.9rem;
+    }
+
+    a[href^="#"] {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: rgba(250, 204, 21, 0.22);
+      color: #fefce8;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="shell">
+      <header class="site-header">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-text">
+            <span>The Simple Human Code</span>
+            <strong>Body · Mind · Spirit</strong>
+          </div>
+        </div>
+        <div class="domain-pill">
+          simple-human-code.shanemichel.net
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-kicker">
+          <span class="dot"></span>
+          DAILY OPERATING SYSTEM
+        </div>
+        <h1>
+          Eat. Move. Rest. <span>Resist.</span> Repeat.
+        </h1>
+        <p class="hero-subtitle">
+          A simple code to live by — to train your body, guard your mind, and resist all forms of evil, including the kind that comes on a plate.
+        </p>
+        <p class="hero-tagline">
+          <strong>“Whatever you do, do all to the glory of God.”</strong> (1 Corinthians 10:31)
+        </p>
+        <div class="hero-actions">
+          <a href="#code" class="btn btn-primary">
+            <span class="icon">🧬</span>
+            View the Code
+          </a>
+          <a href="#battle-plan" class="btn btn-outline">
+            <span class="icon">⚔️</span>
+            Temptation Battle Plan
+          </a>
+          <a href="#prayer" class="btn btn-outline">
+            <span class="icon">🙏</span>
+            Daily Prayer
+          </a>
+        </div>
+      </section>
+
+      <section class="layout" id="code">
+        <div>
+          <!-- 0. Guard Your Mind -->
+          <article class="card" id="mind">
+            <div class="card-header">
+              <div>
+                <div class="card-title">0 · Guard Your Mind</div>
+                <h2>Start Every Day in the Spirit</h2>
+              </div>
+              <div class="card-badge">Mind &amp; Spirit</div>
+            </div>
+            <p class="section-pill">
+              <strong>Core idea:</strong> Your mind is the gate. What you allow in will steer your body, your cravings, and your life.
+            </p>
+            <ul class="bullets">
+              <li>Begin each day: “Lord, help me love what is good and hate what destroys me.”</li>
+              <li>Remember: God has given you a spirit of power, love, and a sound mind (2 Timothy 1:7).</li>
+              <li>When temptation hits — food, lust, laziness, anger — pause, breathe, pray.</li>
+              <li>Pray the Lord’s Prayer: “Lead me not into temptation, but deliver me from evil.” (Matthew 6:13)</li>
+              <li>Know there is always a way out of temptation (1 Corinthians 10:13).</li>
+              <li>Train your thoughts on what is true, pure, and lovely (Philippians 4:8).</li>
+            </ul>
+            <div class="quote">
+              “Do not be conformed to this world, but be transformed by the renewal of your mind.”<br />
+              <span class="ref">Romans 12:2</span>
+            </div>
+          </article>
+
+          <!-- 1. Eat Whole. Eat Simple. -->
+          <article class="card" id="eat">
+            <div class="card-header">
+              <div>
+                <div class="card-title">1 · Eat Whole. Eat Simple.</div>
+                <h2>Fuel the Temple, Don’t Fog It</h2>
+              </div>
+              <div class="card-badge">Body</div>
+            </div>
+            <p class="section-pill">
+              <strong>Body:</strong> Eat like a human was designed to eat.
+              <span> Meat, eggs, fruit, roots, water. Not packages and projects.</span>
+            </p>
+            <ul class="bullets">
+              <li>Choose single-ingredient foods: meat, eggs, fruit, roots, water.</li>
+              <li>Avoid anything your great-grandma wouldn’t recognize as food.</li>
+              <li>Fat and cholesterol are fuel for your brain, not enemies.</li>
+              <li>Cook with animal fat, not industrial seed sludge.</li>
+              <li>Don’t snack. Earn your meals.</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Eat with gratitude and purpose.
+            </p>
+            <ul class="bullets">
+              <li>Pause before you eat. Thank God for the food in front of you.</li>
+              <li>Ask: “Will this help me serve God better, or make me dull and sluggish?”</li>
+              <li>Remember your body is a temple of the Holy Spirit (1 Corinthians 6:19–20).</li>
+            </ul>
+            <div class="quote">
+              “Whether you eat or drink, or whatever you do, do all to the glory of God.”<br />
+              <span class="ref">1 Corinthians 10:31</span>
+            </div>
+          </article>
+
+          <!-- 2. Fast Like You Missed the Hunt -->
+          <article class="card" id="fast">
+            <div class="card-header">
+              <div>
+                <div class="card-title">2 · Fast Like You Missed the Hunt</div>
+                <h2>Let Hunger Make You Holy, Not Afraid</h2>
+              </div>
+              <div class="card-badge">Body Reset</div>
+            </div>
+            <p class="section-pill">
+              <strong>Body:</strong> Sometimes the most healing thing to put in your mouth is nothing.
+            </p>
+            <ul class="bullets">
+              <li>Skip meals sometimes — you’re not dying, you’re resetting.</li>
+              <li>Fasting helps with cellular housekeeping and liver healing.</li>
+              <li>Hunger is not an emergency; it’s a signal. Listen, don’t panic.</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Turn cravings into calls to prayer.
+            </p>
+            <ul class="bullets">
+              <li>Use hunger as a reminder to pray, not panic.</li>
+              <li>Jesus said “When you fast…” — fasting is normal, not extreme (Matthew 6:16).</li>
+              <li>Let fasting weaken your flesh so your spirit can grow stronger.</li>
+              <li>When cravings roar, answer with: “Man shall not live by bread alone…” (Matthew 4:4)</li>
+            </ul>
+          </article>
+
+          <!-- 3. Move Like You Have a Purpose -->
+          <article class="card" id="move">
+            <div class="card-header">
+              <div>
+                <div class="card-title">3 · Move Like You Have a Purpose</div>
+                <h2>Movement as Stewardship, Not Vanity</h2>
+              </div>
+              <div class="card-badge">Body in Motion</div>
+            </div>
+            <ul class="bullets">
+              <li>Walk daily — it’s the original cardio.</li>
+              <li>Lift, carry, stretch — not for aesthetics, for survival.</li>
+              <li>Don’t “exercise.” Do things. Lift groceries. Dig. Climb. Play.</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Every step can be worship.
+            </p>
+            <ul class="bullets">
+              <li>See movement as caring for what God has given you, not chasing a mirror.</li>
+              <li>“Whatever you do, work heartily, as for the Lord and not for men.” (Colossians 3:23)</li>
+              <li>Use walks as prayer walks. Talk to God while your feet move.</li>
+            </ul>
+          </article>
+
+          <!-- 4. Rest Like a Warrior -->
+          <article class="card" id="rest">
+            <div class="card-header">
+              <div>
+                <div class="card-title">4 · Rest Like a Warrior</div>
+                <h2>Sleep Like Someone on a Mission Tomorrow</h2>
+              </div>
+              <div class="card-badge">Recovery</div>
+            </div>
+            <ul class="bullets">
+              <li>Get real sleep — dark, cold, quiet.</li>
+              <li>Seek sunlight early; shut screens down early.</li>
+              <li>Your hormones reset while you sleep. Don’t skip that.</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Lay your burdens down nightly.
+            </p>
+            <ul class="bullets">
+              <li>Remember: “He gives to His beloved sleep.” (Psalm 127:2)</li>
+              <li>Cast your anxieties on Him before bed (1 Peter 5:7).</li>
+              <li>Pray: “Lord, search me, cleanse my mind, and reset my heart for tomorrow.”</li>
+            </ul>
+          </article>
+
+          <!-- 5. Live with the Earth, Not Against It -->
+          <article class="card" id="earth">
+            <div class="card-header">
+              <div>
+                <div class="card-title">5 · Live with the Earth</div>
+                <h2>Let Creation Pull You Back to the Creator</h2>
+              </div>
+              <div class="card-badge">Grounding</div>
+            </div>
+            <ul class="bullets">
+              <li>Get outside every day. Barefoot is better when possible.</li>
+              <li>Let the sun touch your skin and the wind hit your face.</li>
+              <li>Breathe through your nose. Stress less. Be present.</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Use nature as a daily reset.
+            </p>
+            <ul class="bullets">
+              <li>Let creation remind you of the Creator — “The heavens declare the glory of God.” (Psalm 19:1)</li>
+              <li>On walks, look around and say “Thank You” out loud.</li>
+              <li>Let the outdoors pull you out of scrolling and into gratitude.</li>
+            </ul>
+          </article>
+
+          <!-- 6. Think Before You Swallow -->
+          <article class="card" id="think">
+            <div class="card-header">
+              <div>
+                <div class="card-title">6 · Think Before You Swallow</div>
+                <h2>Let Self-Control, Not Craving, Decide</h2>
+              </div>
+              <div class="card-badge">Discernment</div>
+            </div>
+            <p class="section-pill">
+              <strong>Questions to ask before you eat:</strong>
+            </p>
+            <ul class="bullets">
+              <li>“Is this food, or is this a product?”</li>
+              <li>“Is this nourishment, or entertainment?”</li>
+              <li>“Is this a craving from my flesh, or a need from my body?”</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Remember, self-control is fruit of the Spirit.
+            </p>
+            <ul class="bullets">
+              <li>Self-control is a fruit of the Spirit, not a personality trait (Galatians 5:22–23).</li>
+              <li>When you want to binge, pray: “Lord, I choose You over this moment of pleasure.”</li>
+              <li>Some foods are engineered to hijack your brain. Don’t call slavery “freedom.”</li>
+            </ul>
+          </article>
+
+          <!-- 7. Honor the Old Ways -->
+          <article class="card" id="old-ways">
+            <div class="card-header">
+              <div>
+                <div class="card-title">7 · Honor the Old Ways</div>
+                <h2>Your DNA Is Older Than the Drive-Thru</h2>
+              </div>
+              <div class="card-badge">Design</div>
+            </div>
+            <ul class="bullets">
+              <li>Your DNA doesn’t know what a Pop-Tart is.</li>
+              <li>You were built for feast and famine, not breakfast and constant snacks.</li>
+              <li>Trust the process. The modern world is not your friend — yet your body is.</li>
+            </ul>
+            <hr class="divider" />
+            <p class="section-pill">
+              <strong>Mind &amp; Spirit:</strong> Normal isn’t the same as holy.
+            </p>
+            <ul class="bullets">
+              <li>Just because the culture normalizes something doesn’t mean God endorses it.</li>
+              <li>“Do not love the world or the things in the world.” (1 John 2:15)</li>
+              <li>Ask often: “Is this God’s design, or just modern convenience?”</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Right Column: Battle Plan & Prayer -->
+        <aside class="side-column">
+          <!-- Temptation Battle Plan -->
+          <article class="card" id="battle-plan">
+            <div class="side-card-title">Daily Battle Plan</div>
+            <h2>Against All Evil (Including Food)</h2>
+            <p class="micro">
+              When temptation is loud — for food, lust, laziness, anger, scrolling — walk through this slow, on purpose.
+            </p>
+            <ol class="battle-steps">
+              <li>
+                <span class="num">1</span>
+                <div><strong>Name it:</strong> “This is temptation. This is my flesh, not my spirit.”</div>
+              </li>
+              <li>
+                <span class="num">2</span>
+                <div><strong>Pray it:</strong> “Lord Jesus, I submit myself to You. Help me resist this.” (James 4:7)</div>
+              </li>
+              <li>
+                <span class="num">3</span>
+                <div>
+                  <strong>Speak truth out loud:</strong><br />
+                  “God has given me a spirit of power, love, and a sound mind.” (2 Timothy 1:7)<br />
+                  “I can do all things through Christ who strengthens me.” (Philippians 4:13)
+                </div>
+              </li>
+              <li>
+                <span class="num">4</span>
+                <div><strong>Change your state:</strong> Walk. Drink water. Step outside. Leave the room with the food.</div>
+              </li>
+              <li>
+                <span class="num">5</span>
+                <div><strong>Remember your why:</strong> “I am training this body to serve God longer and better. I am not ruled by cravings.”</div>
+              </li>
+            </ol>
+            <div class="verse-chip">
+              <span class="icon">🛡️</span>
+              “Resist the devil, and he will flee from you.” – James 4:7
+            </div>
+          </article>
+
+          <!-- Daily Checklist -->
+          <article class="card">
+            <div class="side-card-title">Simple Daily Checklist</div>
+            <h2>One Day at a Time</h2>
+            <ul class="checklist">
+              <li><span class="icon">☀️</span>Morning: Pray and surrender the day.</li>
+              <li><span class="icon">🥩</span>Eat whole, simple foods. No mindless snacking.</li>
+              <li><span class="icon">🚶‍♂️</span>Walk outside at least once. Breathe and look up.</li>
+              <li><span class="icon">🏋️‍♂️</span>Lift, carry, or move something with intent.</li>
+              <li><span class="icon">⏳</span>Allow some hunger. Don’t rush to silence it.</li>
+              <li><span class="icon">📵</span>Turn screens off early. Protect your sleep.</li>
+              <li><span class="icon">🙏</span>End the day by handing all of it back to God.</li>
+            </ul>
+            <p class="micro">
+              Don’t chase perfection. Chase consistency. Let grace cover the gaps.
+            </p>
+          </article>
+
+          <!-- Daily Prayer -->
+          <article class="card" id="prayer">
+            <div class="side-card-title">Daily Prayer</div>
+            <h2>Reset for Body, Mind & Spirit</h2>
+            <div class="prayer">
+              <div class="prayer-label">Pray this once a day (or more)</div>
+              <p>
+                Father, thank You for this body, this mind, and this day.<br />
+                Help me eat what fuels me, move with purpose, rest in Your peace,<br />
+                and resist every form of evil — including the kind that comes on a plate.<br />
+                Fill me with Your Spirit and give me self-control.<br />
+                My body is Yours. My mind is Yours. My life is Yours. Amen.
+              </p>
+            </div>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>
+          &copy; <span id="year"></span> The Simple Human Code. Built to be lived, not just read.
+        </div>
+        <div>
+          <span class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+            <span class="icon">⬆️</span> Back to top
+          </span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
