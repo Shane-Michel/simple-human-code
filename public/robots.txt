@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://simplehumancode.com/sitemap.xml
