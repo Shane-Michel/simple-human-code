@@ -244,6 +244,51 @@
       box-shadow: var(--shadow-subtle);
     }
 
+    .reset-section {
+      margin-bottom: 2.2rem;
+      padding: 1.5rem;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(250, 204, 21, 0.08), rgba(59, 130, 246, 0.06));
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .reset-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 720px) {
+      .reset-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .reset-card {
+      background: rgba(15, 23, 42, 0.94);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .reset-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.35rem;
+    }
+
+    .reset-card .micro {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .reset-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
     .grace-section {
       margin-bottom: 2rem;
       padding: 1.5rem;
@@ -776,6 +821,10 @@
             <span class="icon">🌅</span>
             Run the Daily Flow
           </a>
+          <a href="#reset" class="btn btn-outline">
+            <span class="icon">🧭</span>
+            Yearly Reset Guide
+          </a>
           <a href="#code" class="btn btn-outline">
             <span class="icon">🧬</span>
             Explore the Code
@@ -788,6 +837,41 @@
             <span class="icon">🚨</span>
             Emergency Mode
           </a>
+        </div>
+      </section>
+
+      <section class="reset-section" id="reset">
+        <div class="section-heading">Yearly reset</div>
+        <h2>January guide to lose visceral fat and realign</h2>
+        <p class="lead">
+          Use these two long-form guides every January (or whenever you drift) to cut visceral fat, tighten your waist, and reboot
+          the Simple Human Code after the holiday chaos.
+        </p>
+        <div class="reset-grid">
+          <div class="reset-card">
+            <h3>Visceral Fat &amp; 32" Waist Plan</h3>
+            <p class="micro">Tactical steps to measure, cut, and maintain a lean midsection with prayer, movement, and food guardrails.</p>
+            <ul class="bullets">
+              <li>Weekly cadence for strength, walks, and breath work.</li>
+              <li>Food swaps that prioritize protein and whole foods without obsessing.</li>
+              <li>Spiritual reset prompts so body changes stay rooted in purpose.</li>
+            </ul>
+            <div class="reset-actions">
+              <a class="btn btn-outline" href="visceral-fat-and-waist-plan.html">Open the visceral fat guide</a>
+            </div>
+          </div>
+          <div class="reset-card">
+            <h3>3-Month Lion Diet Reset</h3>
+            <p class="micro">The structured January-to-April template: 3-day fast, gentle refeed, strict Lion phase, then whole-foods life.</p>
+            <ul class="bullets">
+              <li>Step-by-step timing for the fast, refeed, and Lion rhythm.</li>
+              <li>No-gallbladder adjustments plus weekly fasting strategy after April.</li>
+              <li>Snack ideas, labs to consider, and a “stop immediately” safety list.</li>
+            </ul>
+            <div class="reset-actions">
+              <a class="btn btn-outline" href="lion-diet-master-plan.html">Open the Lion diet plan</a>
+            </div>
+          </div>
         </div>
       </section>
 
