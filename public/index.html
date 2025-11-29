@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="canonical" href="https://simplehumancode.com/" />
   <title>The Simple Human Code – Body, Mind & Spirit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
@@ -758,6 +759,13 @@
       justify-content: space-between;
       gap: 0.75rem;
       align-items: center;
+    }
+
+    .site-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .site-footer a {
@@ -1533,12 +1541,16 @@
 
     <footer class="site-footer">
       <div class="site-footer-inner">
-        <div>&copy; <span id="year"></span> The Simple Human Code. Built to be lived, not just read.</div>
-        <div>
+      <div>&copy; <span id="year"></span> The Simple Human Code. Built to be lived, not just read.</div>
+        <div class="site-footer-links">
+          <a href="disclaimer.html">Disclaimer</a>
           <span class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
             <span class="icon">⬆️</span> Back to top
           </span>
         </div>
+      </div>
+      <div class="micro" style="margin-top: 0.5rem; max-width: var(--max-width); text-align: center;">
+        Built for my mind, body, and spirit—not to be used as doctrine. Users take all blame for their own actions.
       </div>
     </footer>
   </div>
